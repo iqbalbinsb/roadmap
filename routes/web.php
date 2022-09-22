@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Foundation\Vite;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\ItemController;
@@ -42,4 +43,17 @@ Route::group(['middleware' => 'authed'], function () {
 
     Route::get('mention-search', \App\Http\Controllers\MentionSearchController::class)->name('mention-search');
     Route::get('user/{username}', \App\Http\Controllers\PublicUserController::class)->name('public-user');
+});
+
+Route::get('feedback.js', function(){
+    return response()
+        ->view('feedback-js', [
+            'url' => 'http://heatmap.test/track',
+            'template' => view('feedback-template', [
+                'color' => '#44ff00'
+            ])->render(),
+            'css' => (new Vite)(['resources/css/admin.css']),
+
+        ])
+        ->header('Content-Type', 'application/javascript');
 });
