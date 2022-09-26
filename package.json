@@ -5,7 +5,9 @@
         "dev": "vite",
         "build": "vite build",
         "prod": "vite build",
-        "production": "vite build"
+        "production": "vite build",
+        "dev:feedback": "TAILWIND_CONFIG=feedback vite",
+        "production:feedback": "TAILWIND_CONFIG=feedback vite build"
     },
     "devDependencies": {
         "@alpinejs/focus": "^3.10.2",

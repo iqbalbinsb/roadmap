@@ -14,14 +14,16 @@ window.FEEDBACK = {
     init: () => {
         document.body.innerHTML += FEEDBACK.settings.template;
 
-        FEEDBACK.registerOpenHandler();
+        FEEDBACK.registerModalActions();
     },
 
-    registerOpenHandler: () => {
+    registerModalActions: () => {
         document.getElementById('openButton').addEventListener('click', (event) => {
-            FEEDBACK.data.open = !FEEDBACK.data.open;
-            document.getElementById('openButton').classList.add('hidden');
-            document.getElementById('feedbackModal').classList.remove('hidden');
+            FEEDBACK.toggleModal();
+        });
+
+        document.getElementById('closeButton').addEventListener('click', (event) => {
+            FEEDBACK.toggleModal();
         })
     },
 
@@ -37,6 +39,18 @@ window.FEEDBACK = {
         })
             .then((response) => response.json())
     },
+
+    toggleModal: () => {
+        if (FEEDBACK.data.open) {
+            document.getElementById('openButton').classList.remove('rm-f-hidden');
+            document.getElementById('feedbackModal').classList.add('rm-f-hidden');
+        } else {
+            document.getElementById('openButton').classList.add('rm-f-hidden');
+            document.getElementById('feedbackModal').classList.remove('rm-f-hidden');
+        }
+
+        FEEDBACK.data.open = !FEEDBACK.data.open;
+    }
 };
 
 document.addEventListener('DOMContentLoaded', (e) => {
