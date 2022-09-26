@@ -24,6 +24,18 @@ window.FEEDBACK = {
 
         document.getElementById('closeButton').addEventListener('click', (event) => {
             FEEDBACK.toggleModal();
+        });
+
+        document.getElementById('submitButton').addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const form = document.getElementById('feedbackForm');
+            const formData = new FormData(form);
+
+            FEEDBACK.send({
+                email: formData.get('email'),
+                feedback: formData.get('feedback')
+            });
         })
     },
 
@@ -42,11 +54,11 @@ window.FEEDBACK = {
 
     toggleModal: () => {
         if (FEEDBACK.data.open) {
-            document.getElementById('openButton').classList.remove('rm-f-hidden');
-            document.getElementById('feedbackModal').classList.add('rm-f-hidden');
+            document.getElementById('openButton').classList.remove('roadmap-feedback-hidden');
+            document.getElementById('feedbackModal').classList.add('roadmap-feedback-hidden');
         } else {
-            document.getElementById('openButton').classList.add('rm-f-hidden');
-            document.getElementById('feedbackModal').classList.remove('rm-f-hidden');
+            document.getElementById('openButton').classList.add('roadmap-feedback-hidden');
+            document.getElementById('feedbackModal').classList.remove('roadmap-feedback-hidden');
         }
 
         FEEDBACK.data.open = !FEEDBACK.data.open;

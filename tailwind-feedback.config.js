@@ -1,6 +1,6 @@
 module.exports = {
     important: true,
-    prefix: 'rm-f-',
+    prefix: 'roadmap-feedback-',
     content: [
         './resources/**/*.blade.php',
         './vendor/filament/**/*.blade.php',

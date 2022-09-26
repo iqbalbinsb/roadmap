@@ -45,10 +45,10 @@ Route::group(['middleware' => 'authed'], function () {
     Route::get('user/{username}', \App\Http\Controllers\PublicUserController::class)->name('public-user');
 });
 
-Route::get('feedback.js', function(){
+Route::get('feedback.js', function () {
     return response()
         ->view('feedback-js', [
-            'url' => 'http://heatmap.test/track',
+            'url' => 'https://roadmap.test/feedback',
             'template' => view('feedback-template', [
                 'color' => '#44ff00'
             ])->render(),
@@ -56,4 +56,10 @@ Route::get('feedback.js', function(){
 
         ])
         ->header('Content-Type', 'application/javascript');
+});
+
+Route::post('feedback', function (\Illuminate\Http\Request $request) {
+    ray($request->all());
+
+    return [];
 });
