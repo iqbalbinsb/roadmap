@@ -2,6 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.ignore-css {
-    all: unset;
-}

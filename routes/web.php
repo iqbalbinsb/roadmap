@@ -52,7 +52,7 @@ Route::get('feedback.js', function () {
             'template' => view('feedback-template', [
                 'color' => '#44ff00'
             ])->render(),
-            'css' => (new Vite)(['resources/css/admin.css']),
+            'baseTemplate' => view('feedback-base-template')->render(),
 
         ])
         ->header('Content-Type', 'application/javascript');

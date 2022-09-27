@@ -1,10 +1,12 @@
 window.FEEDBACK = {
     debug: false,
 
+    shadowRoot: null,
+
     settings: {
         url: '{{ $url }}',
+        baseTemplate: `{!! $baseTemplate !!}`,
         template: `{!! $template !!}`,
-        css: `{{ $css }}`
     },
 
     data: {
@@ -12,24 +14,26 @@ window.FEEDBACK = {
     },
 
     init: () => {
-        document.body.innerHTML += FEEDBACK.settings.template;
+        document.body.innerHTML += FEEDBACK.settings.baseTemplate;
+        FEEDBACK.shadowRoot = document.querySelector('feedback-window').attachShadow({ mode: 'open'})
+        FEEDBACK.shadowRoot.innerHTML = FEEDBACK.settings.template;
 
         FEEDBACK.registerModalActions();
     },
 
     registerModalActions: () => {
-        document.getElementById('openButton').addEventListener('click', (event) => {
+        FEEDBACK.shadowRoot.getElementById('openButton').addEventListener('click', (event) => {
             FEEDBACK.toggleModal();
         });
 
-        document.getElementById('closeButton').addEventListener('click', (event) => {
+        FEEDBACK.shadowRoot.getElementById('closeButton').addEventListener('click', (event) => {
             FEEDBACK.toggleModal();
         });
 
-        document.getElementById('submitButton').addEventListener('click', (event) => {
+        FEEDBACK.shadowRoot.getElementById('submitButton').addEventListener('click', (event) => {
             event.preventDefault();
 
-            const form = document.getElementById('feedbackForm');
+            const form = FEEDBACK.shadowRoot.getElementById('feedbackForm');
             const formData = new FormData(form);
 
             FEEDBACK.send({
@@ -54,15 +58,15 @@ window.FEEDBACK = {
 
     toggleModal: () => {
         if (FEEDBACK.data.open) {
-            document.getElementById('openButton').classList.remove('roadmap-feedback-hidden');
-            document.getElementById('feedbackModal').classList.add('roadmap-feedback-hidden');
+            FEEDBACK.shadowRoot.getElementById('openButton').classList.remove('roadmap-feedback-hidden');
+            FEEDBACK.shadowRoot.getElementById('feedbackModal').classList.add('roadmap-feedback-hidden');
         } else {
-            document.getElementById('openButton').classList.add('roadmap-feedback-hidden');
-            document.getElementById('feedbackModal').classList.remove('roadmap-feedback-hidden');
+            FEEDBACK.shadowRoot.getElementById('openButton').classList.add('roadmap-feedback-hidden');
+            FEEDBACK.shadowRoot.getElementById('feedbackModal').classList.remove('roadmap-feedback-hidden');
         }
 
         FEEDBACK.data.open = !FEEDBACK.data.open;
-    }
+    },
 };
 
 document.addEventListener('DOMContentLoaded', (e) => {

@@ -1,6 +1,10 @@
+<style>
+
+</style>
+
 {{ app(Illuminate\Foundation\Vite::class)('resources/css/feedback.css', 'build/feedback') }}
 
-<div class="ignore-css roadmap-feedback-fixed roadmap-feedback-bottom-[5%] roadmap-feedback-right-[1%] roadmap-feedback-z-[1000]">
+<div class="roadmap-feedback-fixed roadmap-feedback-bottom-[5%] roadmap-feedback-right-[1%] roadmap-feedback-z-[1000]">
     <button
         id="openButton"
         class="roadmap-feedback-absolute roadmap-feedback-bottom-[20px] roadmap-feedback-right-[50px] roadmap-feedback-rounded-full roadmap-feedback-bg-blue-500 roadmap-feedback-shadow-lg roadmap-feedback-shadow-blue-500/50 roadmap-feedback-p-4 roadmap-feedback-w-16 roadmap-feedback-h-16 roadmap-feedback-flex roadmap-feedback-items-center roadmap-feedback-justify-center">
@@ -16,14 +20,14 @@
         <form id="feedbackForm">
             <div class="roadmap-feedback-w-full roadmap-feedback-mb-4">
                 <label for="email" class="roadmap-feedback-block roadmap-feedback-font-medium roadmap-feedback-text-black roadmap-feedback-mb-2">Email</label>
-                <div class="ignore-css roadmap-feedback-mt-1">
+                <div class="roadmap-feedback-mt-1">
                     <input type="email" name="email" id="email"
                            class="roadmap-feedback-form-input roadmap-feedback-text-xl roadmap-feedback-text-black roadmap-feedback-w-full roadmap-feedback-rounded-lg roadmap-feedback-border roadmap-feedback-border-gray-600 roadmap-feedback-shadow"
                            placeholder="you@example.com">
                 </div>
             </div>
-            <div class="ignore-css roadmap-feedback-w-full">
-                <label for="label" class="ignore-css roadmap-feedback-block roadmap-feedback-font-medium roadmap-feedback-text-black roadmap-feedback-mb-2">Feedback</label>
+            <div class="roadmap-feedback-w-full">
+                <label for="label" class="roadmap-feedback-block roadmap-feedback-font-medium roadmap-feedback-text-black roadmap-feedback-mb-2">Feedback</label>
                 <div class="">
                 <textarea name="feedback"
                           id="label"
@@ -33,7 +37,7 @@
                 </div>
             </div>
 
-            <div class="flex justify-between">
+            <div class="roadmap-feedback-flex roadmap-feedback-justify-between">
                 <button id="closeButton" type="button" class="roadmap-feedback-text-black">Close</button>
                 <button
                     id="submitButton"
