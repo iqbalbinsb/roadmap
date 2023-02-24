@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-200 absolute bottom-2 right-2 max-w-[300px] max-h-[500px] overflow-hidden rounded-lg border flex flex-col">
+    <div class="bg-gray-100 absolute bottom-2 right-2 max-w-[300px] max-h-[500px] overflow-hidden rounded-lg border flex flex-col">
         <div class="flex items-center justify-between p-2">
             <p class="text-xl font-bold">Changelog</p>
         </div>
