@@ -13,6 +13,9 @@ class EditChangelog extends EditRecord
     protected function getActions(): array
     {
         return [
+            Actions\Action::make('preview')
+                ->label('Preview')
+                ->url(url: route('changelog.show', $this->record->slug), shouldOpenInNewTab: true),
             Actions\DeleteAction::make(),
         ];
     }

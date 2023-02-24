@@ -5,10 +5,13 @@
         "dev": "vite",
         "build": "vite build",
         "prod": "vite build",
-        "production": "vite build"
+        "production": "vite build",
+        "changelog-widget:watch": "parcel watch resources/js/changelog/src/main.js --no-source-maps --dist-dir public/js/changelog-widget",
+        "changelog-widget:build": "parcel build resources/js/changelog/src/main.js --no-source-maps --dist-dir public/js/changelog-widget"
     },
     "devDependencies": {
         "@alpinejs/focus": "^3.10.2",
+        "@parcel/transformer-vue": "^2.8.3",
         "@ryangjchandler/alpine-clipboard": "^2.2.0",
         "@ryangjchandler/alpine-tooltip": "^1.2.0",
         "@tailwindcss/forms": "^0.5.1",
@@ -24,5 +27,9 @@
         "tippy.js": "^6.3.7",
         "tributejs": "^5.1.3",
         "vite": "^2.9.13"
+    },
+    "dependencies": {
+        "parcel": "^2.8.3",
+        "vue": "^3.2.47"
     }
 }

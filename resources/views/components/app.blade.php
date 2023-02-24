@@ -83,5 +83,8 @@
 @stack('javascript')
 @livewire('notifications')
 {!! app(\App\Settings\GeneralSettings::class)->custom_scripts !!}
+
+<script src="{{ asset('js/changelog-widget/main.js') }}"></script>
+
 </body>
 </html>
